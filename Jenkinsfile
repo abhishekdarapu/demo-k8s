@@ -13,7 +13,7 @@ pipeline {
       }
       stage('Create Docker Image') {
          steps {
-           sh 'docker image build -t abhishekdarapu/demo-k8s .'
+           sh 'docker image build -t abhishekdarapu/demo-k8s:latest .'
          }
       }
       stage('Push Docker Image') {
