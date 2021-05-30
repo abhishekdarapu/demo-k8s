@@ -26,7 +26,7 @@ pipeline {
       }
       stage('Deploy Application on MiniKube') {
           steps {
-                    sh 'envsubst < ${WORKSPACE}/MiniKube-app.yml | kubectl apply -f -'
+                    sh 'envsubst < ${WORKSPACE}/miniKube-app.yml | kubectl apply -f -'
           }
       }
    }
