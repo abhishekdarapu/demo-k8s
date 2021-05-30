@@ -27,6 +27,7 @@ pipeline {
       stage('Deploy Application on MiniKube') {
           steps {
                     sh 'envsubst < ${WORKSPACE}/miniKube-app.yml | kubectl apply -f -'
+		    sh 'envsubst < ${WORKSPACE}/miniKube-app.yml | kubectl delete -f -'
           }
       }
 	stage('Remove Docker Image') {
