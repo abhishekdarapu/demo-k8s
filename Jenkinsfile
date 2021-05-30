@@ -11,23 +11,6 @@ pipeline {
             git credentialsId: 'GitHub', url: "https://github.com/abhishekdarapu/demo-k8s"
          }
       }
-      stage('Create Docker Image') {
-         steps {
-           sh 'docker image build -t abhishekdarapu/demo-k8s .'
-         }
-      }
-      stage('Push Docker Image') {
-  	 steps{
-	    withCredentials([usernamePassword( credentialsId: 'dockerhub', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
-            sh "docker login -u ${USERNAME} -p ${PASSWORD}"
-            sh "docker push abhishekdarapu/demo-k8s"
-            }
-         }
-      }
-      stage('Deploy Application on MiniKube') {
-          steps {
-                    sh 'envsubst < ${WORKSPACE}/MiniKube-app.yml | kubectl apply -f -'
-          }
-      }
+      
    }
 }
