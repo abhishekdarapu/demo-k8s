@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: demo-k8s
-        image: abhishekdarapu/demo-k8s
+        image: abhishekdarapu/demo-k8s:latest
         ports:
         - containerPort: 80
 ---
