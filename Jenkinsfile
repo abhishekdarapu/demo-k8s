@@ -30,10 +30,5 @@ pipeline {
                   sh 'envsubst < ${WORKSPACE}/miniKube-app.yml | kubectl apply -f -'
           }
       }
-	stage('Remove Docker Image') {
-          steps {
-                    sh 'docker rmi abhishekdarapu/demo-k8s:latest'
-          }
-      }
    }
 }
